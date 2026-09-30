@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Материалы к Уроку Sonnet 5.5 делает видео | Мастодонт</title>
+<meta name="description" content="Семь видео на Claude Sonnet 5.5: мем, моушн, мультик, промо на HyperFrames, шортс, монтаж и клип. Все промпты.">
+<style>
+@font-face{font-family:"Benzin";src:url("fonts/Benzin-Semibold.ttf") format("truetype");font-weight:600;font-display:swap}
+@font-face{font-family:"Benzin";src:url("fonts/Benzin-Bold.ttf") format("truetype");font-weight:700;font-display:swap}
+@font-face{font-family:"Benzin";src:url("fonts/Benzin-ExtraBold.ttf") format("truetype");font-weight:800;font-display:swap}
+@font-face{font-family:"Onest";src:url("fonts/Onest-Regular.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Onest";src:url("fonts/Onest-Medium.ttf") format("truetype");font-weight:500;font-display:swap}
+@font-face{font-family:"Onest";src:url("fonts/Onest-SemiBold.ttf") format("truetype");font-weight:600;font-display:swap}
+@font-face{font-family:"Blender";src:url("fonts/BlenderPro-Bold.ttf") format("truetype");font-weight:700;font-display:swap}
+
+:root{--bg:#08080A;--bg2:#0E0E12;--bg3:#15131A;--ink:#EFEAE2;--dim:#8F8898;
+--line:rgba(239,234,226,.09);--line2:rgba(239,234,226,.20);--a1:#FF7A2B;--a2:#B86BFF;--hot:#FFC061;
+--pad:clamp(16px,4vw,64px)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--a1) var(--bg2)}
+html::-webkit-scrollbar{width:12px}
+html::-webkit-scrollbar-track{background:var(--bg2)}
+html::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--a1),var(--a2));border-radius:8px;border:3px solid var(--bg2)}
+html::-webkit-scrollbar-thumb:hover{background:var(--a1)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Onest",sans-serif;
+font-size:clamp(16px,1.1vw,18px);line-height:1.65;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+background:radial-gradient(900px 600px at 88% 30%,rgba(184,107,255,.07),transparent 70%),
+radial-gradient(800px 600px at 6% 78%,rgba(255,122,43,.06),transparent 70%)}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.025;
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
+.wrap{width:min(1080px,100%);margin:0 auto;padding:0 var(--pad);position:relative;z-index:2}
+.ico{width:26px;height:26px;fill:none;stroke:url(#g);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+.aura{position:fixed;width:620px;height:620px;left:0;top:0;pointer-events:none;z-index:1;
+transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(255,122,43,.09),transparent 62%)}
+.bar{position:fixed;left:0;top:0;height:3px;width:0;z-index:200;
+background:linear-gradient(90deg,var(--a1),var(--a2));box-shadow:0 0 18px rgba(255,122,43,.6)}
+
+nav{position:sticky;top:0;z-index:90;background:rgba(8,8,10,.82);backdrop-filter:blur(14px) saturate(1.3)}
+nav::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+background:linear-gradient(90deg,transparent,var(--a1),var(--a2),transparent)}
+.nav-in{display:flex;align-items:center;gap:22px;height:64px}
+.brand{font-family:"Benzin";font-weight:800;font-size:clamp(14px,1.4vw,18px);text-transform:uppercase;letter-spacing:.04em}
+.nav-links{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+nav a{font-family:"Blender";font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+color:var(--dim);text-decoration:none;padding:9px 12px;border-radius:3px;transition:.25s}
+nav a:hover{color:var(--ink);background:rgba(239,234,226,.06)}
+@media(max-width:760px){.nav-links{display:none}}
+
+/* ШАПКА: картинка в своей пропорции, текст заходит на её тёмный низ */
+.hero{position:relative;z-index:2;border-bottom:1px solid rgba(239,234,226,.14);padding-bottom:clamp(46px,6vw,88px)}
+.hero-pic{position:relative;aspect-ratio:2048/1152;overflow:hidden}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:transform}
+.hero-pic::after{content:"";position:absolute;inset:0;
+background:linear-gradient(180deg,rgba(8,8,10,.35) 0%,rgba(8,8,10,0) 14%,rgba(8,8,10,0) 58%,rgba(8,8,10,.55) 72%,rgba(8,8,10,.9) 86%,#08080A 100%)}
+.hero-in{position:relative;z-index:3;width:min(1080px,100%);margin:calc(-1*min(15.6vw,300px)) auto 0;
+padding:0 var(--pad);display:flex;flex-direction:column;align-items:flex-start;text-align:left}
+.badge{display:inline-block;font-family:"Blender";font-weight:700;font-size:12px;letter-spacing:.26em;
+text-transform:uppercase;color:var(--a1);border:1px solid var(--a1);padding:8px 15px;border-radius:2px;
+background:rgba(8,8,10,.6);backdrop-filter:blur(6px)}
+h1{font-family:"Benzin";font-weight:800;text-transform:uppercase;margin:22px 0 0;
+font-size:clamp(28px,5.2vw,70px);line-height:1.02;letter-spacing:-.01em;text-shadow:0 6px 44px rgba(0,0,0,.85)}
+h1 em{font-style:normal;color:var(--hot);
+text-shadow:0 0 34px rgba(255,170,70,.85),0 0 70px rgba(255,140,50,.5),0 4px 22px rgba(0,0,0,.95)}
+.sub{margin:20px 0 0;color:var(--dim);max-width:60ch}
+.watch{display:inline-flex;align-items:center;gap:12px;margin-top:30px;
+background:linear-gradient(100deg,var(--a1),var(--a2));color:#08080A;
+font-family:"Blender";font-weight:700;font-size:14px;letter-spacing:.14em;text-transform:uppercase;
+padding:15px 28px;border-radius:3px;text-decoration:none;
+box-shadow:0 12px 34px rgba(255,122,43,.28);transition:transform .22s,box-shadow .22s}
+.watch svg{width:20px;height:20px;fill:#08080A}
+.watch:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 18px 46px rgba(184,107,255,.35)}
+
+section{padding:clamp(48px,6.5vw,104px) 0;position:relative;z-index:2}
+h2{font-family:"Benzin";font-weight:800;text-transform:uppercase;margin:0 0 12px;
+font-size:clamp(22px,3.2vw,44px);line-height:1.05}
+.h2-note{color:var(--dim);margin:0 0 38px;max-width:58ch}
+h3{font-family:"Benzin";font-weight:700;text-transform:uppercase;margin:0 0 14px;
+font-size:clamp(17px,1.9vw,25px);line-height:1.15}
+
+/* карточки с наклоном */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;perspective:1100px}
+.cards.two{grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr))}
+.card{background:linear-gradient(160deg,var(--bg3),var(--bg2));border:1px solid var(--line);
+border-radius:6px;padding:28px 24px;position:relative;overflow:hidden;
+transform-style:preserve-3d;transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .3s,box-shadow .3s}
+.card::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--a1),var(--a2))}
+.card::after{content:"";position:absolute;right:-80px;top:-80px;width:200px;height:200px;pointer-events:none;
+background:radial-gradient(circle,rgba(184,107,255,.10),transparent 68%);opacity:0;transition:opacity .4s}
+.card:hover{border-color:var(--line2);box-shadow:0 22px 50px rgba(0,0,0,.55)}
+.card:hover::after{opacity:1}
+.card .ico{width:34px;height:34px;margin-bottom:18px}
+.card h4{font-family:"Benzin";font-weight:700;text-transform:uppercase;font-size:15px;line-height:1.25;margin:0 0 10px}
+.card p{margin:0;color:var(--dim);font-size:.95em}
+
+/* инструменты и ссылки */
+.tools{display:grid;gap:11px}
+.tool{display:flex;align-items:center;gap:16px;background:var(--bg2);border:1px solid var(--line);
+border-radius:5px;padding:18px 22px;flex-wrap:wrap;text-decoration:none;color:inherit;
+position:relative;overflow:hidden;transition:transform .25s,border-color .25s,background .25s}
+.tool::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+background:linear-gradient(180deg,var(--a1),var(--a2));transform:scaleY(0);transition:transform .3s}
+.tool:hover{border-color:var(--line2);transform:translateX(6px);background:var(--bg3)}
+.tool:hover::before{transform:scaleY(1)}
+.tool .nm{font-family:"Blender";font-weight:700;font-size:15px;letter-spacing:.1em;text-transform:uppercase;min-width:150px}
+.tool .ds{color:var(--dim);font-size:.9em;flex:1;min-width:170px}
+.pill{font-family:"Blender";font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+padding:6px 12px;border-radius:2px;border:1px solid var(--line2);color:var(--dim);white-space:nowrap}
+.pill.free{color:var(--hot);border-color:rgba(255,192,97,.45)}
+
+/* ШАГИ */
+.step{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(18px,2.6vw,42px);
+background:linear-gradient(155deg,var(--bg3),var(--bg2) 60%);border:1px solid var(--line);
+border-radius:8px;padding:clamp(24px,3.2vw,44px);margin-bottom:16px;position:relative;overflow:hidden;
+box-shadow:0 18px 44px rgba(0,0,0,.35)}
+.step::before{content:"";position:absolute;inset:0 0 auto;height:3px;
+background:linear-gradient(90deg,var(--a1),var(--a2),transparent)}
+.step::after{content:"";position:absolute;right:-120px;top:-120px;width:300px;height:300px;
+pointer-events:none;background:radial-gradient(circle,rgba(255,122,43,.09),transparent 68%)}
+.step-num{font-family:"Benzin";font-weight:800;font-size:clamp(34px,4.4vw,62px);line-height:.85;color:transparent;
+-webkit-text-stroke:1.5px rgba(255,122,43,.6);position:sticky;top:96px;align-self:start;
+white-space:nowrap;letter-spacing:-.03em}
+@media(max-width:760px){.step{grid-template-columns:1fr}.step-num{position:static;font-size:38px}}
+.step .lead{color:var(--dim);margin:0 0 20px;max-width:64ch}
+.acts{list-style:none;padding:0;margin:0 0 20px}
+.acts li{position:relative;padding-left:26px;margin-bottom:11px}
+.acts li::before{content:"";position:absolute;left:2px;top:.78em;width:12px;height:2px;border-radius:2px;
+background:linear-gradient(90deg,var(--a1),var(--a2))}
+.acts a,.tip a,.lead a{color:var(--a1)}
+.lab{font-family:"Blender";font-weight:700;font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+color:var(--a2);margin:24px 0 12px}
+.say{color:var(--ink)}
+.set{display:flex;align-items:center;gap:12px;background:rgba(184,107,255,.06);border:1px solid rgba(184,107,255,.25);
+border-radius:5px;padding:13px 18px;margin:0 0 6px;font-size:.94em}
+.set .ico{width:22px;height:22px}
+.set b{font-family:"Blender";font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:var(--a2);margin-right:4px}
+
+/* промпт */
+.pr{margin:20px 0;background:#09090B;border:1px solid var(--line);border-left:3px solid transparent;
+border-image:linear-gradient(180deg,var(--a1),var(--a2)) 1;
+box-shadow:0 14px 40px rgba(0,0,0,.55),0 0 38px rgba(255,122,43,.06),inset 0 1px 0 rgba(255,255,255,.03);
+overflow:hidden}
+.pr-top{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.pr-top .ico{width:20px;height:20px}
+.pr-lab{font-family:"Blender";font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--a1)}
+.copy{margin-left:auto;display:inline-flex;align-items:center;gap:8px;background:transparent;border:1px solid var(--line2);color:var(--dim);
+font-family:"Blender";font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+padding:8px 14px;border-radius:2px;cursor:pointer;transition:.2s}
+.copy svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.copy .ok{display:none}
+.copy:hover{border-color:var(--a1);color:var(--a1);box-shadow:0 0 20px rgba(255,122,43,.25)}
+.copy:focus-visible,.watch:focus-visible,.tool:focus-visible,nav a:focus-visible{outline:2px solid var(--hot);outline-offset:3px}
+.copy.done{border-color:var(--hot);color:var(--hot)}
+.copy.done .ok{display:block}.copy.done .cp{display:none}
+.pr-body{margin:0;padding:18px 18px;white-space:pre-wrap;word-break:break-word;
+font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.85em;line-height:1.62;
+max-height:320px;overflow:auto;scrollbar-width:thin;scrollbar-color:var(--a1) rgba(239,234,226,.04)}
+.pr-body::-webkit-scrollbar{width:9px}
+.pr-body::-webkit-scrollbar-track{background:rgba(239,234,226,.04)}
+.pr-body::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--a1),var(--a2));border-radius:5px}
+
+.tip,.warn{border-radius:5px;padding:15px 20px;margin:18px 0 0;font-size:.94em}
+.tip{background:rgba(255,192,97,.05);border:1px solid rgba(255,192,97,.24)}
+.warn{background:rgba(255,122,43,.05);border:1px solid rgba(255,122,43,.26)}
+code{font-family:ui-monospace,Menlo,monospace;background:rgba(255,122,43,.12);
+padding:2px 7px;border-radius:3px;font-size:.9em;color:var(--a1)}
+
+/* появление */
+[data-rv]{opacity:0;transform:translateY(34px) scale(.985);
+transition:opacity .75s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1)}
+[data-rv].in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){[data-rv]{opacity:1;transform:none;transition:none}
+.hero-img{transform:none!important}.cta{animation:none}}
+
+/* блок интенсива: вся карточка - одна ссылка-накладка */
+.cta{background:linear-gradient(155deg,var(--bg3),var(--bg2));border:1px solid var(--line2);border-radius:8px;
+padding:clamp(28px,4vw,58px);position:relative;overflow:hidden;
+transition:border-color .3s,transform .3s;animation:glow 3s ease-in-out infinite}
+@keyframes glow{0%,100%{box-shadow:0 0 44px rgba(255,122,43,.10)}50%{box-shadow:0 0 84px rgba(184,107,255,.24)}}
+.cta:hover{border-color:var(--a1);transform:translateY(-4px)}
+.cta-hit{position:absolute;inset:0;z-index:5;display:block}
+.cta-hit:focus-visible{outline:2px solid var(--hot);outline-offset:-4px}
+.cta>*:not(.cta-hit){position:relative;z-index:1}
+.cta::before{content:"";position:absolute;right:-90px;top:-90px;width:300px;height:300px;pointer-events:none;z-index:0;
+background:radial-gradient(circle,rgba(184,107,255,.16),transparent 68%)}
+.cta::after{content:"";position:absolute;left:-90px;bottom:-90px;width:300px;height:300px;pointer-events:none;z-index:0;
+background:radial-gradient(circle,rgba(255,122,43,.14),transparent 68%)}
+.cta h2 span{background:linear-gradient(100deg,var(--a1),var(--a2));-webkit-background-clip:text;
+background-clip:text;color:transparent}
+.cta-cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(22px,3vw,50px);margin-top:30px}
+@media(max-width:760px){.cta-cols{grid-template-columns:1fr}}
+.cta-cols h4{font-family:"Blender";font-weight:700;font-size:12px;letter-spacing:.2em;text-transform:uppercase;
+color:var(--a1);margin:0 0 15px}
+.cta-cols ul{list-style:none;padding:0;margin:0}
+.cta-cols li{display:flex;gap:12px;align-items:flex-start;margin-bottom:13px;color:var(--dim);font-size:.95em}
+.cta-cols li .ico{width:22px;height:22px;margin-top:1px}
+.cta-bottom{display:flex;align-items:center;gap:20px;margin-top:34px;flex-wrap:wrap;
+border-top:1px solid var(--line);padding-top:28px}
+.cta-bottom .free{font-family:"Blender";font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+font-size:14px;color:var(--dim)}
+.cta-bottom .free b{color:var(--hot)}
+.cta-btn{margin-left:auto;background:linear-gradient(100deg,var(--a1),var(--a2));color:#08080A;
+font-family:"Blender";font-weight:700;font-size:14px;letter-spacing:.14em;text-transform:uppercase;
+padding:16px 32px;border-radius:3px;transition:transform .22s}
+.cta:hover .cta-btn{transform:translateY(-2px) scale(1.03)}
+@media(max-width:520px){.cta-btn{margin-left:0;width:100%;text-align:center}}
+
+footer{position:relative;z-index:2;padding:44px 0 66px}
+footer::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;
+background:linear-gradient(90deg,transparent,var(--a1),var(--a2),transparent);opacity:.6}
+.f-in{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.f-in .tag{color:var(--dim);font-size:.92em}
+.f-in a{margin-left:auto;color:var(--a1);text-decoration:none;font-family:"Blender";font-weight:700;
+font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+::selection{background:var(--a1);color:#08080A}
+@media(min-width:2200px){.wrap,.hero-in{width:min(1240px,100%)}}
+</style></head><body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<linearGradient id="g" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="24" y2="24"><stop offset="0" stop-color="#FF7A2B"/><stop offset="1" stop-color="#B86BFF"/></linearGradient>
+</defs></svg>
+
+<div class="bar" id="bar"></div>
+<div class="aura" id="aura"></div>
+
+<nav><div class="wrap nav-in">
+<span class="brand">Мастодонт</span>
+<div class="nav-links">
+<a href="#learn">Что научишься</a><a href="#tools">Инструменты</a><a href="#steps">Шаги</a><a href="#tips">Советы</a><a href="#links">Ссылки</a>
+</div></div></nav>
+
+<header class="hero">
+<div class="hero-pic"><img class="hero-img" id="heroimg" src="img/hero.jpg" width="2048" height="1152" alt="Sonnet 5.5 делает видео"></div>
+<div class="hero-in">
+<span class="badge" data-rv>Материалы к уроку</span>
+<h1 data-rv>Sonnet 5.5<br><em>делает видео</em></h1>
+<p class="sub" data-rv>Семь роликов почти целиком кодом: мем, моушн-шоурил, мультик, промо на HyperFrames, вертикальный шортс, монтаж говорящей головы и музыкальный клип. Все промпты копируются кнопкой.</p>
+<a class="watch js-yt" data-rv href="https://youtu.be/yEpN_s9UkAE" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 00-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 002.4 7.2 26 26 0 002 12a26 26 0 00.4 4.8 2.5 2.5 0 001.8 1.8c1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4a2.5 2.5 0 001.8-1.8A26 26 0 0022 12a26 26 0 00-.4-4.8zM10 15V9l5.2 3z"/></svg>Смотреть видео</a>
+</div></header>
+
+<section id="learn"><div class="wrap">
+<h2 data-rv>Что научишься делать</h2>
+<p class="h2-note" data-rv>Семь видео - каждое делается отдельно от остальных.</p>
+<div class="cards">
+<div class="card" data-rv><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M3 13l4-4 4 4 3-3 4 4"/><path d="M7 20h10"/></svg><h4>Мем</h4><p>Оживить рисунок: подписи, пост, камера и финальный эффект одним промптом</p></div>
+<div class="card" data-rv><svg class="ico" viewBox="0 0 24 24"><circle cx="15" cy="12" r="5"/><path d="M3 9h6M2 12h6M3 15h6"/></svg><h4>Моушн-шоурил</h4><p>20 секунд моушн-графики под свой продукт</p></div>
+<div class="card" data-rv><svg class="ico" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/></svg><h4>Мультик</h4><p>Маскот в любой сцене по ссылке на чужой ролик, через /goal</p></div>
+<div class="card" data-rv><svg class="ico" viewBox="0 0 24 24"><path d="M3 10v4a1 1 0 001 1h2l6 4V5L6 9H4a1 1 0 00-1 1z"/><path d="M16 9a4 4 0 010 6M19 6.5a8 8 0 010 11"/></svg><h4>Промо запуска</h4><p>Ролик на HyperFrames в цветах и шрифтах твоего бренда</p></div>
+<div class="card" data-rv><svg class="ico" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 5.5h2"/><path d="M10.5 10v4l3.5-2z"/></svg><h4>Шортс</h4><p>Вертикальный ролик с русской озвучкой бесплатным движком</p></div>
+<div class="card" data-rv><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M7 20c.8-2.8 2.7-4 5-4s4.2 1.2 5 4"/></svg><h4>Монтаж</h4><p>Эффекты и b-roll поверх записи твоей говорящей головы</p></div>
+<div class="card" data-rv><svg class="ico" viewBox="0 0 24 24"><path d="M9 18V6l11-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></svg><h4>Клип</h4><p>Графика, музыка, звуки и голос - всё кодом, без платных генераций</p></div>
+</div></div></section>
+
+<section id="tools"><div class="wrap">
+<h2 data-rv>Что понадобится</h2>
+<p class="h2-note" data-rv>Обязателен только Claude. Хватит подписки за 20 долларов: Sonnet 5.5 экономно тратит лимиты, пару клипов сделаешь и в лимит не упрёшься.</p>
+<div class="tools">
+<a class="tool" data-rv href="https://claude.ai/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/></svg><span class="nm">Claude</span><span class="ds">Sonnet 5.5 во вкладке Code - там делаются все семь видео</span><span class="pill">от 20 $/мес</span></a>
+<a class="tool" data-rv href="https://github.com/heygen-com/hyperframes" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg><span class="nm">HyperFrames</span><span class="ds">Видео кодом под твой бренд. Ставится одной фразой в чат</span><span class="pill free">бесплатно</span></a>
+<a class="tool" data-rv href="https://suno.com/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24"><path d="M9 18V6l11-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></svg><span class="nm">Suno</span><span class="ds">Трек для клипа, если нужна музыка лучше, чем кодом</span><span class="pill">по желанию</span></a>
+<a class="tool" data-rv href="https://kie.ai/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg><span class="nm">kie.ai</span><span class="ds">Видеомодели вроде Seedance по API. Пополняется российскими картами</span><span class="pill">платно</span></a>
+</div></div></section>
+
+<section id="steps"><div class="wrap">
+<h2 data-rv>Шаги</h2>
+<p class="h2-note" data-rv>Семь видео по порядку. Главные промпты копируются кнопкой, правки по ходу - списком под ними, вводишь по одной.</p>
+
+<article class="step" data-rv><div class="step-num">01</div><div class="step-body">
+<h3>Мем из картинки</h3>
+<p class="lead">Рисунок генеришь картинкой, всё остальное Sonnet собирает одним промптом: открывает рисунок по кусочкам, ставит подписи, выводит пост, двигает камеру и в конце добавляет бивни.</p>
+<ul class="acts"><li>Нужны две картинки: сам рисунок и он же с деталью, которая появится в финале</li><li>Пути к файлам в промпте замени на свои</li></ul>
+<div class="pr"><div class="pr-top"><svg class="ico" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg><span class="pr-lab">Промпт 1 · мем</span><button class="copy" type="button"><svg class="cp" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a1 1 0 011-1h9"/></svg><svg class="ok" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Скопировать</span></button></div><pre class="pr-body">сделай из двух картинок анимированный мем: H:/top111/generations/sonnet55_meme_A_bez_bivney.png и H:/top111/generations/sonnet55_meme_B_zolotye_bivni.png. 1920x1080, около 30 секунд, со звуком, с нуля кодом, без hyperframes. светлый бумажный фон. первая картинка стоит мельче, в левой части кадра, и открывается слева направо кусками. под каждым куском появляется подпись шрифтом с засечками: под задними ногами "Opus 4.6", под штриховкой "Opus 4.7", под бледными каракулями "Opus 4.8", под клубком каракулей "Opus 5". на "Opus 5" справа выезжает карточка поста из X, текст переведи на русский: Nat McAleese @__nmca__ "Opus 5.5 намного, намного, намного лучше Opus 5. Простите за ту модель, попробуйте эту." 11:12 · 22 сент. 2026 · 1 млн просмотров. потом карточка уходит, открывается перёд, под передними ногами подпись "Opus 5.5", и камера плавно приближается, пока рисунок не займёт весь кадр. в конце на голове появляются золотые бивни из второй картинки, с искрами и волшебным звуком, и под головой подпись "Sonnet 5.5".</pre></div>
+</div></article>
+
+<article class="step" data-rv><div class="step-num">02</div><div class="step-body">
+<h3>Моушн-шоурил на 20 секунд</h3>
+<p class="lead">Промпт очень простой. Первая версия выходит потрясной, но текст в ней общий - одной правкой превращаешь ролик в трейлер.</p>
+<div class="set"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/></svg><span><b>Настройки</b> Claude, вкладка Code · модель Sonnet 5.5 · усилие High</span></div>
+<div class="pr"><div class="pr-top"><svg class="ico" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg><span class="pr-lab">Промпт 2 · моушн-шоурил</span><button class="copy" type="button"><svg class="cp" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a1 1 0 011-1h9"/></svg><svg class="ok" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Скопировать</span></button></div><pre class="pr-body">сделай динамичное 20-секундное видео с моушн-графикой, которое покажет, какой ты невероятный моушн-дизайнер, как будто это твой шоурил для резюме. выложись по полной и будь максимально креативным. не используй hyperframes, просто сделай с нуля кодом.</pre></div>
+<p class="lab">Правка</p>
+<ul class="acts"><li class="say">«поменяй текст на что-то вроде "Guess what? I can make videos now" "And you don't even need Opus" "Introducing Sonnet 5.5", но оставь всю крутую моушн-графику»</li></ul>
+<div class="tip">Добавь в промпт ссылку на свой сайт или продукт - получишь под него крутой промо-ролик.</div>
+</div></article>
+
+<article class="step" data-rv><div class="step-num">03</div><div class="step-body">
+<h3>Мультик по ссылке на чужой ролик</h3>
+<p class="lead">Увидел в X ролик, который зацепил, - кидаешь ссылку и ставишь цель через /goal. У нас маскот Claude проходит через все инструменты человечества, от каменного века до AGI.</p>
+<div class="pr"><div class="pr-top"><svg class="ico" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg><span class="pr-lab">Промпт 3 · мультик через /goal</span><button class="copy" type="button"><svg class="cp" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a1 1 0 011-1h9"/></svg><svg class="ok" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Скопировать</span></button></div><pre class="pr-body">/goal хочу, чтобы ты сделал видео на 30-40 секунд ровно в таком стиле: https://x.com/devteamdrew/status/2102440077746188664 где маскот claude проходит через эволюцию человеческих инструментов, от каменного века до нас, которые прямо сейчас пользуются ИИ. сделай максимально креативно, пока не почувствуешь, что уровень качества дотягивает до видео по ссылке.</pre></div>
+<p class="lab">Правки по ходу</p>
+<ul class="acts"><li class="say">«не используй hyperframes, просто сделай с нуля кодом»</li><li class="say">«в целом отличная работа. добавь в конце сцену про AGI и сделай все сцены интереснее и лучше. "From stone to AGI"»</li><li class="say">«покажи видео»</li></ul>
+<div class="tip">Новым моделям так и пишешь: просто сделай лучше. Звуки и музыку она делает сама, кодом.</div>
+</div></article>
+
+<article class="step" data-rv><div class="step-num">04</div><div class="step-body">
+<h3>Промо запуска на HyperFrames</h3>
+<p class="lead">HyperFrames - бесплатная библиотека на GitHub. Видео легко подогнать под свой стиль, шрифты и цвета, а до рендера он показывает ключевые кадры, и по ходу можно давать фидбек.</p>
+<div class="pr"><div class="pr-top"><svg class="ico" viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg><span class="pr-lab">Ставим HyperFrames · один раз</span><button class="copy" type="button"><svg class="cp" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a1 1 0 011-1h9"/></svg><svg class="ok" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Скопировать</span></button></div><pre class="pr-body">установи вот это: https://github.com/heygen-com/hyperframes</pre></div>
+<ul class="acts"><li>Прикрепи к сообщению логотип и картинки-референсы - у нас примеры с Pinterest</li><li>Конвой замени на свой продукт: услуги, цену и гарантию бери свои</li></ul>
+<div class="pr"><div class="pr-top"><svg class="ico" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg><span class="pr-lab">Промпт 4 · бриф промо</span><button class="copy" type="button"><svg class="cp" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a1 1 0 011-1h9"/></svg><svg class="ok" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Скопировать</span></button></div><pre class="pr-body">сделай через hyperframes промо-ролик запуска для MASTODONT CONVOY - бронированный конвой через пустоши постапокалипсиса: тачки с пулемётами, отбиваем от мутантов и зомби. начни с проблемы: каждую ночь новая орда. дальше что внутри: бронированный эскорт из точки а в точку б, защита бункера, ночные дроны-патрули, доставка припасов. стартовая цена 150 крышек за рейс до 7 октября, гарантия: не довезли живым - вернём оплату. в конце призыв забронировать конвой. весь текст в ролике на английском. держись нашего бренда: чёрный фон #0A0A0A, золотой акцент #F2DB82, логотип и примеры прикрепляю. сначала покажи ключевые кадры.</pre></div>
+<div class="pr"><div class="pr-top"><svg class="ico" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg><span class="pr-lab">Промпт 5 · правки после ключевых кадров</span><button class="copy" type="button"><svg class="cp" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a1 1 0 011-1h9"/></svg><svg class="ok" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Скопировать</span></button></div><pre class="pr-body">всё верно, две поправки. первое: цвета наши - чёрный #0A0A0A и золотой #F2DB82 вместо красного, с постеров бери фактуру и шрифты, а не цвет. второе: фото не генерируем - вместо фото-вырезок рисуй иллюстрации сам, кодом. счётчик для 150 - как сам решишь. логотипа нет, надпись MASTODONT CONVOY собери сам. погнали в ключевые кадры.</pre></div>
+<p class="lab">Дальше по ходу</p>
+<ul class="acts">
+<li class="say">«поищи самые крутые видео, которые люди сделали на opus 5.5, и возьми из них вдохновение»</li>
+<li class="say">«давай дождёмся, пока закончится ресёрч»</li>
+<li class="say">«ок, анимируй, посмотрим»</li>
+<li class="say">«и вообще, думаю, музыка была бы круче звуков печати, особенно если синхронизировать»</li>
+<li class="say">«какие-то сцены слишком быстрые, дай им лишние 1-2 секунды»</li>
+<li class="say">«готов обсудить всё это, если хочешь. у тебя хороший вкус и креативность»</li>
+<li class="say">«рендери»</li>
+<li class="say">«со звуковыми эффектами и без музыки очень странно, и всё слишком быстро. может, растянем до 50 секунд и добавим музыку?»</li>
+</ul>
+<div class="tip">Моделям стоит льстить: пишешь, что у них хороший вкус и креатив, и они стараются сильнее. Правки удобно надиктовывать голосом - в Claude Code это есть.</div>
+</div></article>
+
+<article class="step" data-rv><div class="step-num">05</div><div class="step-body">
+<h3>Вертикальный шортс с озвучкой</h3>
+<p class="lead">Тот же продукт, но вертикально. Почти с одного промпта и пары правок - вместе с русской озвучкой бесплатным движком у тебя на компе.</p>
+<div class="pr"><div class="pr-top"><svg class="ico" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg><span class="pr-lab">Промпт 6 · шортс</span><button class="copy" type="button"><svg class="cp" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a1 1 0 011-1h9"/></svg><svg class="ok" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Скопировать</span></button></div><pre class="pr-body">сделай хлёсткий и современный вертикальный шортс для MASTODONT CONVOY - бронированный конвой через пустоши постапокалипсиса, отбиваем от мутантов и зомби. в нём: бронированный эскорт из точки а в точку б, защита бункера, ночные дроны-патрули, доставка припасов, 150 крышек за рейс до 7 октября, не довезли живым - вернём оплату. нужно качество продакшена, со звуком. весь текст в ролике на английском. делай всё кодом, без платных сервисов: картинки и видео не генерируй. сделай невероятно и будь креативным.</pre></div>
+<p class="lab">Правки</p>
+<ul class="acts"><li class="say">«хорошо, но местами всё слишком быстро. можешь вырезать пару сцен или сделать длиннее? и давай добавим озвучку на русском бесплатным движком, который работает у меня на компе.»</li><li class="say">«сделай озвучку естественнее»</li></ul>
+<div class="tip">Замени конвой на свой сайт или продукт.</div>
+</div></article>
+
+<article class="step" data-rv><div class="step-num">06</div><div class="step-body">
+<h3>Монтаж говорящей головы</h3>
+<p class="lead">Прикрепляешь минуту своей записи - Sonnet добавляет эффекты, анимации и b-roll, а твоя голова остаётся на экране.</p>
+<ul class="acts"><li>Прикрепи к сообщению минуту своего видео</li></ul>
+<div class="pr"><div class="pr-top"><svg class="ico" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg><span class="pr-lab">Промпт 7 · монтаж</span><button class="copy" type="button"><svg class="cp" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a1 1 0 011-1h9"/></svg><svg class="ok" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Скопировать</span></button></div><pre class="pr-body">вот видео, которое я записал. добавь эффекты, которые оживят то, что я говорю, как профессиональный видеомонтажёр. большую часть времени на экране должна оставаться моя говорящая голова, но можешь уходить в b-roll, если нужно. давай для начала только первую минуту.</pre></div>
+<p class="lab">Правка</p>
+<ul class="acts"><li class="say">«кстати, не используй hyperframes, просто сделай с нуля кодом»</li></ul>
+<div class="pr"><div class="pr-top"><svg class="ico" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg><span class="pr-lab">Промпт 8 · если вышло скучно</span><button class="copy" type="button"><svg class="cp" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a1 1 0 011-1h9"/></svg><svg class="ok" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Скопировать</span></button></div><pre class="pr-body">это супер скучно. забудь про мой шаблон, включи креативность и сделай максимально интересно, как в профессиональной студии монтажа</pre></div>
+<div class="tip">Первые кадры выходят по шаблону. Sonnet 5.5 и Opus 5.5 надо прямо просить: будь креативной, не держись шаблона.</div>
+</div></article>
+
+<article class="step" data-rv><div class="step-num">07</div><div class="step-body">
+<h3>Музыкальный клип</h3>
+<p class="lead">Кидаешь ссылку на клип, который зацепил, и свою тему. Графику, музыку, звуки и голос Sonnet делает кодом, без платных генераций.</p>
+<div class="pr"><div class="pr-top"><svg class="ico" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg><span class="pr-lab">Промпт 9 · клип</span><button class="copy" type="button"><svg class="cp" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a1 1 0 011-1h9"/></svg><svg class="ok" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Скопировать</span></button></div><pre class="pr-body">сделай музыкальный клип, похожий на этот: https://x.com/donaldjewkes/status/2102801274173587569
+
+посмотри его и прочитай промпт во втором твите для референса.
+
+но можешь выбрать другие визуальные стили и всё такое, которые больше подойдут нам.
+
+хочу, чтобы видео было о том, как будет выглядеть жизнь молодого человека в постапокалипсисе, где ИИ захватил мир: он прячется в подвале от марширующих роботов. сделай мрачно и эпично.
+
+делай всё кодом: графику, анимацию, музыку и звуки. озвучку только на русском, бесплатным движком, который работает у меня на компе. картинки и видео не генерируй.</pre></div>
+<div class="tip">Во втором твите автор клипа выложил свой промпт - Claude прочитает его сам, как референс.</div>
+</div></article>
+</div></section>
+
+<section id="tips"><div class="wrap">
+<h2 data-rv>Четыре совета</h2>
+<p class="h2-note" data-rv>Как делать такие видео дальше, уже под свои задачи.</p>
+<div class="cards two">
+<div class="card" data-rv><svg class="ico" viewBox="0 0 24 24"><path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 005.7 5.7l1-1"/></svg><h4>Копируй любой стиль</h4><p>Увидел в X крутой ролик - кинь ссылку на пост в Opus или Sonnet и скажи: сделай в таком стиле, но по моей истории или промпту. Самый простой способ скопировать любой стиль.</p></div>
+<div class="card" data-rv><svg class="ico" viewBox="0 0 24 24"><path d="M12 3a9 9 0 100 18c1.1 0 1.5-.8 1.5-1.6 0-.9-.6-1.4-.6-2.2 0-.9.7-1.5 1.6-1.5H17a4 4 0 004-4C21 7 17 3 12 3z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10" cy="7" r="1"/><circle cx="15" cy="7.5" r="1"/></svg><h4>HyperFrames под бренд</h4><p>Для промо и роликов в стиле бренда ставь HyperFrames, он бесплатный. Дай ему логотипы, цвета и шрифты - чем больше дашь, тем точнее попадёт в бренд.</p></div>
+<div class="card" data-rv><svg class="ico" viewBox="0 0 24 24"><path d="M9 18V6l11-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></svg><h4>Музыка из Suno</h4><p>Claude умеет делать музыку кодом, но лучше сгенерь трек в Suno, скачай, отдай Claude и скажи подогнать видео под песню и выбрать лучшие моменты.</p></div>
+<div class="card" data-rv><svg class="ico" viewBox="0 0 24 24"><rect x="2.5" y="6" width="13" height="12" rx="2"/><path d="M15.5 10.5l6-3.5v10l-6-3.5z"/></svg><h4>Реалистичные сцены</h4><p>Для по-настоящему качественного видео нужна видеомодель вроде Seedance. Подключаешь по API, например через kie - он пополняется российскими картами. Это стоит денег.</p></div>
+</div></div></section>
+
+<section id="links"><div class="wrap">
+<h2 data-rv>Все ссылки</h2>
+<div class="tools">
+<a class="tool js-yt" data-rv href="https://youtu.be/yEpN_s9UkAE" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="3.5"/><path d="M10 9.5v5l4.5-2.5z"/></svg><span class="nm">Этот видос</span><span class="ds">Смотреть на YouTube</span><span class="pill">видео</span></a>
+<a class="tool" data-rv href="https://claude.ai/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/></svg><span class="nm">claude.ai</span><span class="ds">Sonnet 5.5 и Claude Code</span><span class="pill">сервис</span></a>
+<a class="tool" data-rv href="https://github.com/heygen-com/hyperframes" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg><span class="nm">HyperFrames</span><span class="ds">Репозиторий на GitHub</span><span class="pill free">бесплатно</span></a>
+<a class="tool" data-rv href="https://suno.com/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24"><path d="M9 18V6l11-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></svg><span class="nm">suno.com</span><span class="ds">Треки для клипов</span><span class="pill">сервис</span></a>
+<a class="tool" data-rv href="https://kie.ai/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg><span class="nm">kie.ai</span><span class="ds">Видеомодели по API</span><span class="pill">сервис</span></a>
+<a class="tool" data-rv href="https://x.com/devteamdrew/status/2102440077746188664" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg><span class="nm">Ролик Drew</span><span class="ds">Референс для мультика с маскотом</span><span class="pill">пост в X</span></a>
+<a class="tool" data-rv href="https://x.com/donaldjewkes/status/2102801274173587569" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg><span class="nm">Клип Donald</span><span class="ds">Референс для музыкального клипа, промпт во втором твите</span><span class="pill">пост в X</span></a>
+</div></div></section>
+
+<section style="padding-top:0"><div class="wrap"><div class="cta" data-rv style="position:relative">
+<a class="cta-hit" href="https://t.me/mastodont_aibot?start=mini_kurs" target="_blank" rel="noopener" aria-label="Забрать интенсив"></a>
+<h2>Первые <span>$2к</span> на ИИ - бесплатный интенсив</h2>
+<div class="cta-cols">
+<div><h4>Внутри</h4><ul>
+<li><svg class="ico" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Реальное демо на Claude вживую</li>
+<li><svg class="ico" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Софт, который за 5 минут находит компании без сайтов с готовыми контактами</li>
+<li><svg class="ico" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Кейсы учеников: $1650 за 3 проекта без команды</li>
+</ul></div>
+<div><h4>Два бонуса в конце</h4><ul>
+<li><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v8h14v-8M12 8v12M12 8c-2-3.5-6-3.5-6-1 0 1.5 3 1 6 1zm0 0c2-3.5 6-3.5 6-1 0 1.5-3 1-6 1z"/></svg>50 скучных и самых прибыльных ниш без конкуренции</li>
+<li><svg class="ico" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11"/><path d="M3.5 6l1.2 1.2L7 5M3.5 12l1.2 1.2L7 11M3.5 18l1.2 1.2L7 17"/></svg>Чек-лист: первые $500 за 7 дней</li>
+</ul></div>
+</div>
+<div class="cta-bottom">
+<span class="free"><b>Бесплатно.</b> Навсегда.</span>
+<span class="cta-btn">Забрать интенсив</span>
+</div>
+</div></div></section>
+
+<footer><div class="wrap f-in">
+<span class="brand">Мастодонт</span>
+<span class="tag">AI и нейросети - просто, по делу</span>
+<a class="js-yt" href="https://youtu.be/yEpN_s9UkAE" target="_blank" rel="noopener">Смотреть на YouTube</a>
+</div></footer>
+
+<script>
+/* появление блоков: в шапке выезд остаётся, ниже неё всё видимое проигрывается само */
+var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+var io=new IntersectionObserver(function(es){
+  es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}});
+},{threshold:.12,rootMargin:"0px 0px -8% 0px"});
+document.querySelectorAll("[data-rv]").forEach(function(el,i){
+  if(reduce){el.classList.add("in");return}
+  var inHero=!!el.closest(".hero");
+  if(inHero){setTimeout(function(){el.classList.add("in")},120+i*110);return}
+  if(el.getBoundingClientRect().top < innerHeight*1.05){
+    setTimeout(function(){el.classList.add("in")},420+(i%6)*90);return;
+  }
+  el.style.transitionDelay=(i%6*70)+"ms";io.observe(el);
+});
+
+/* параллакс шапки + полоса прогресса */
+var bar=document.getElementById("bar"),hero=document.getElementById("heroimg"),tick=false;
+function frame(){
+  tick=false;
+  var y=scrollY,h=document.documentElement.scrollHeight-innerHeight;
+  bar.style.width=(h>0?y/h*100:0)+"%";
+  if(hero&&!reduce&&y<innerHeight*1.5)hero.style.transform="translateY("+(y*.06)+"px)";
+}
+addEventListener("scroll",function(){if(!tick){tick=true;requestAnimationFrame(frame)}},{passive:true});
+frame();
+
+/* свет за курсором */
+var aura=document.getElementById("aura");
+addEventListener("pointermove",function(e){
+  aura.style.left=e.clientX+"px";aura.style.top=e.clientY+"px";
+},{passive:true});
+
+/* наклон карточек */
+if(!reduce)document.querySelectorAll(".card").forEach(function(c){
+  c.addEventListener("pointermove",function(e){
+    var r=c.getBoundingClientRect();
+    var x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    c.style.transform="rotateY("+(x*7)+"deg) rotateX("+(-y*7)+"deg) translateZ(14px)";
+  });
+  c.addEventListener("pointerleave",function(){c.style.transform=""});
+});
+
+/* копирование */
+document.querySelectorAll(".copy").forEach(function(b){
+  b.addEventListener("click",function(){
+    var t=b.closest(".pr").querySelector(".pr-body").innerText,s=b.querySelector("span");
+    navigator.clipboard.writeText(t).then(function(){
+      s.textContent="Скопировано!";b.classList.add("done");
+      setTimeout(function(){s.textContent="Скопировать";b.classList.remove("done")},2000);
+    });
+  });
+});
+</script>
+</body></html>
